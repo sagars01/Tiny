@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import type { ReactNode } from "react"
 import AnimatedLayout from "@/components/root/AnimatedLayout"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 import Link from "next/link"
 
 const geistSans = Geist({
@@ -15,9 +15,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  colorScheme: "light dark",
+};
+
 export const metadata: Metadata = {
   title: "The Tiny App",
   description: "A collection of tiny apps for productivity and fun.",
+  icons: {
+    icon: [{ rel: "icon", href: "favicon.ico", url: "favicon.ico" }]
+  },
   openGraph: {
     title: "The Tiny App",
     description: "A collection of tiny apps for productivity and fun.",
@@ -25,7 +39,6 @@ export const metadata: Metadata = {
     siteName: "The Tiny App",
   },
 }
-
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -35,14 +48,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="min-h-screen flex flex-col">
             <header className="fixed top-0 left-0 w-full bg-card shadow-md z-50">
               <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                <Link href="/">
+                <Link href="/" className="flex items-center">
+                  {/* Add the icon next to the title */}
                   <h1 className="text-xl font-bold">The Tiny App</h1>
                 </Link>
                 <nav>
                   <ul className="flex gap-4">
                     <li><a href="/" className="hover:underline">Home</a></li>
-                    <li><a href="/about" className="hover:underline">About</a></li>
-                    <li><a href="/contact" className="hover:underline">Contact</a></li>
                   </ul>
                 </nav>
               </div>
