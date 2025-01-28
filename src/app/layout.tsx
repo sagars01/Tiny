@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </Link>
                 <nav>
                   <ul className="flex gap-4">
-                    <li><a href="/" className="hover:underline">Home</a></li>
+                    {/* <li><a href="/" className="hover:underline">Home</a></li> */}
                   </ul>
                 </nav>
               </div>

@@ -8,8 +8,6 @@ import Link from 'next/link';
 export default function LandingPage() {
     const tools = [
         { name: 'WEBP to SVG Converter', description: 'Quickly convert WEBP images to SVG format.', href: '/tools/image-converter' },
-        { name: 'Todo App', description: 'Manage your tasks efficiently and stay organized.', href: '/tools/todo' },
-        { name: 'AI Text Summarizer', description: 'Summarize text or articles with the power of AI.', href: '/tools/text-summarizer' },
     ];
 
     return (
